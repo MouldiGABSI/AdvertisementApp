@@ -20,7 +20,15 @@ class HomeWorker {
      This method will do a single work
      Called from the interactor
      */
-    func doSomeWork() {
-        // NOTE: Do the work
+    func generateViewModel(advertisements: [Advertisement]) -> HomeViewModel? {
+        
+        let rows = advertisements.map { (advertisement) -> AdvertisementRowViewModel in
+            AdvertisementRowViewModel(title: advertisement.title,
+                                           category: advertisement.category,
+                                           price: advertisement.price,
+                                           images: advertisement.images,
+                                           isUrgent: advertisement.isUrgent)
+        }
+        return HomeViewModel(sections: [AdvertisementSectionViewModel(dataModel: rows)])
     }
 }

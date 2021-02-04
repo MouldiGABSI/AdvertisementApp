@@ -23,7 +23,8 @@ final class HomeConfigurator {
         let router = HomeRouter(viewController: viewController)
         let presenter = HomePresenter(vc: viewController)
         let interactor = HomeInteractor(presenter: presenter)
-
+        let service = HomeAPIService()
+        interactor.service = service
         viewController.interactor = interactor
         viewController.router = router
     }

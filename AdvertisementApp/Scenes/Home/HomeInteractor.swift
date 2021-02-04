@@ -12,12 +12,12 @@ import UIKit
 import LBCAnnouncementsCore
 /// Class HomeInteractorInteractor
 ///
-/// Will handle all (inter)actions from the HomeInteractorViewController
+/// Will handle all (inter)actions from the HomeInteractor
 ///
 class HomeInteractor: Interactor {
     /// The presenter var will store a reference to the HomeInteractorPresenter
     var presenter: HomePresenter
-    
+    var service: HomeAPIServiceProtocol?
     /**
      We setup the HomeInteractorPresenter in the
      HomeInteractorInteractor, because only the interactor
@@ -35,16 +35,17 @@ class HomeInteractor: Interactor {
      */
     func fetchAnnounecement() {
         // If your action needs complex computation, you may considerate to create a HomeInteractorworker
-        let worker = HomeWorker()
-        worker.doSomeWork()
-    }
-    
-    /**
-     This method will call the presenter to display the result of your doSomething() func
-     Don't forget to write the corresponding XCTest
-     */
-    func presentSomething() {
-        /// This will be called in the HomeInteractorPresenter
-        presenter.presentSomething()
+        service?.fetchAdvertisementsList(completion: { (result:Result<[Advertisement], APIError>) in
+            switch result {
+            case .success(let advertisements) :
+                let worker = HomeWorker()
+                if let viewModel = worker.generateViewModel(advertisements: advertisements) {
+                    self.presenter.present(viewModel: viewModel)
+                }
+            case .failure(let error):
+                print("-----> \(error)")
+            }
+            
+        })
     }
 }

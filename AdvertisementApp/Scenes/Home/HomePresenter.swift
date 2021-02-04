@@ -12,26 +12,18 @@ import UIKit
 
 /// Class HomePresenterPresenter
 ///
-/// Will be the Layout Updater for the HomePresenterViewController
+/// Will be the Layout Updater for the HomePresenter
 ///
 class HomePresenter: Presenter {
-    /// The viewController var will store a reference to the HomePresenterViewController
+    /// The viewController var will store a reference to the HomePresenter
     var viewController: HomeViewController
     
     /**
-     We setup the HomePresenterViewController in the
+     We setup the HomePresenter in the
      HomePresenterPresenter, because only the Presenter
      can update the viewController
      */
     init(vc: HomeViewController) {
         viewController = vc
-    }
-    
-    /**
-     This method will call the presenter to display the result of your doSomething() func
-     Don't forget to write the corresponding XCTest
-     */
-    func presentSomething() {
-       
     }
 }

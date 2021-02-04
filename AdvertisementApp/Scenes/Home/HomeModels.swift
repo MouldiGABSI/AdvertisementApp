@@ -19,16 +19,16 @@ struct HomeViewModel : TableViewModel {
     
 }
 
-struct CitySectionViewModel: TableSectionViewModel {
+struct AdvertisementSectionViewModel: TableSectionViewModel {
     var dataModel: [TableRowViewModel]
     
 }
 
-struct AdvertisementTableRowViewModel: TableRowViewModel {
+struct AdvertisementRowViewModel: TableRowViewModel {
     
     var rowClass: AnyClass { return AdvertisementCell.self }
     
-    var rowHeight: CGFloat { return 48.0 }
+    var rowHeight: CGFloat { return UITableView.automaticDimension }
     var title: String
     var category: Category
     var price: Double

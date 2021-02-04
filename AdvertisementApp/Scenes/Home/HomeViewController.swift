@@ -10,13 +10,13 @@
 
 import UIKit
 
-class HomeViewController: UITableViewController, VIPController {
+class HomeViewController: UIViewController, VIPController {
     var interactor: HomeInteractor?
     var viewModel: HomeViewModel? {
-        didSet { tableView.reloadData() }
+        didSet { DispatchQueue.main.async { self.advertisementsTableView.reloadData() } }
     }
     var router: HomeRouter?
-    
+    let advertisementsTableView = UITableView()
     // MARK: - Initializers
     
     init(configurator: HomeConfigurator = HomeConfigurator.shared) {
@@ -43,7 +43,25 @@ class HomeViewController: UITableViewController, VIPController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureView()
         fetchAnnounecementOnLoad()
+    }
+    
+    func configureView() {
+        view.backgroundColor = .white
+        
+        view.addSubview(advertisementsTableView)
+        
+        advertisementsTableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        advertisementsTableView.topAnchor.constraint(equalTo:view.safeAreaLayoutGuide.topAnchor).isActive = true
+        advertisementsTableView.leftAnchor.constraint(equalTo:view.safeAreaLayoutGuide.leftAnchor).isActive = true
+        advertisementsTableView.rightAnchor.constraint(equalTo:view.safeAreaLayoutGuide.rightAnchor).isActive = true
+        advertisementsTableView.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        advertisementsTableView.register(AdvertisementCell.self, forCellReuseIdentifier: AdvertisementCell.identifier)
+        advertisementsTableView.dataSource = self
+        advertisementsTableView.delegate = self
+
     }
     
     // MARK: Event handling
@@ -69,17 +87,17 @@ class HomeViewController: UITableViewController, VIPController {
 
 // MARK: UITableViewDataSource
 
-extension HomeViewController {
+extension HomeViewController : UITableViewDataSource {
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel?.count ?? 0
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.numberOfRows(section) ?? 0
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let rowClass = viewModel?.row(rowAt: indexPath)?.rowClass {
             if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: rowClass)) {
                 viewModel?.row(rowAt: indexPath)?.configure(cell)
@@ -91,16 +109,15 @@ extension HomeViewController {
 }
 
 // MARK: UITableViewDelegate
-extension HomeViewController {
+extension HomeViewController : UITableViewDelegate {
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return viewModel?.row(rowAt: indexPath)?.rowHeight ?? 0
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let selectedRow = viewModel?.row(rowAt: indexPath) as? AdvertisementTableRowViewModel {
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let selectedRow = viewModel?.row(rowAt: indexPath) as? AdvertisementRowViewModel {
         }
-        performSegue(withIdentifier: "WeatherForecast", sender: self)
     }
 }
 

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -52,7 +53,7 @@
             <constraints>
                 <constraint firstItem="dCm-69-1oj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="0St-NS-ze0"/>
                 <constraint firstItem="gLF-aU-ILd" firstAttribute="leading" secondItem="dCm-69-1oj" secondAttribute="trailing" constant="20" id="79F-Tf-kKT"/>
-                <constraint firstItem="dCm-69-1oj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" symbolic="YES" id="DiF-9u-eol"/>
+                <constraint firstItem="dCm-69-1oj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="DiF-9u-eol"/>
                 <constraint firstItem="bCF-bm-pXG" firstAttribute="leading" secondItem="dCm-69-1oj" secondAttribute="trailing" constant="20" id="Dxe-ty-NiD"/>
                 <constraint firstItem="bAy-Mj-tsi" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="ONk-iI-FKp"/>
                 <constraint firstItem="bAy-Mj-tsi" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="20" id="Sry-WU-VzM"/>
