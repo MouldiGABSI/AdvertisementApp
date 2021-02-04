@@ -1,0 +1,16 @@
+PODS:
+  - LBCAnnouncementsCore (0.1)
+
+DEPENDENCIES:
+  - LBCAnnouncementsCore
+
+SPEC REPOS:
+  trunk:
+    - LBCAnnouncementsCore
+
+SPEC CHECKSUMS:
+  LBCAnnouncementsCore: 6ee6dc0d1763a1287d8e25b2d616214a89d470c9
+
+PODFILE CHECKSUM: 2015221a6722bbca96ddc16264c6f58a01c89a86
+
+COCOAPODS: 1.9.1
