@@ -4,7 +4,7 @@
 target 'AdvertisementApp' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-   pod 'LBCAnnouncementsCore'
+   pod 'LBCAnnouncementsCore', :git => 'https://github.com/MouldiGABSI/LBCAnnouncementsCore.git'
   # Pods for AdvertisementApp
 
   target 'AdvertisementAppTests' do
