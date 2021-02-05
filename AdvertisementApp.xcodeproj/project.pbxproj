@@ -17,7 +17,6 @@
 		7D38FA4225CBDC5300EE66E0 /* Leboncoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38FA3025CBDC5300EE66E0 /* Leboncoin.swift */; };
 		7D38FA4325CBDC5300EE66E0 /* UITableviewCell+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38FA3225CBDC5300EE66E0 /* UITableviewCell+Utils.swift */; };
 		7D38FA4425CBDC5300EE66E0 /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38FA3325CBDC5300EE66E0 /* TableViewModel.swift */; };
-		7D38FA4525CBDC5300EE66E0 /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D38FA3725CBDC5300EE66E0 /* TestView.xib */; };
 		7D38FA4625CBDC5300EE66E0 /* AdvertisementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38FA3825CBDC5300EE66E0 /* AdvertisementCell.swift */; };
 		7D38FA4725CBDC5300EE66E0 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38FA3925CBDC5300EE66E0 /* HomeInteractor.swift */; };
 		7D38FA4825CBDC5300EE66E0 /* HomeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38FA3A25CBDC5300EE66E0 /* HomeConfigurator.swift */; };
@@ -30,6 +29,7 @@
 		7D38FA5925CBE31C00EE66E0 /* HomeAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38FA5825CBE31C00EE66E0 /* HomeAPIService.swift */; };
 		7D38FA7625CC1B8000EE66E0 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38FA7525CC1B8000EE66E0 /* String+Utils.swift */; };
 		7D38FA7B25CC1C9400EE66E0 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38FA7A25CC1C9400EE66E0 /* Date+Utils.swift */; };
+		7D38FAA425CD419900EE66E0 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38FAA325CD419900EE66E0 /* ImageLoader.swift */; };
 		A187E73F241550E05BBA97CA /* Pods_AdvertisementApp_AdvertisementAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 230CACAFA9DDC1B4DD2B717A /* Pods_AdvertisementApp_AdvertisementAppUITests.framework */; };
 		F4DD3FEF1F22779C24036E6D /* Pods_AdvertisementAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3FE1BB0B7ED14ACABC4AB4B /* Pods_AdvertisementAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -70,7 +70,6 @@
 		7D38FA3025CBDC5300EE66E0 /* Leboncoin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Leboncoin.swift; sourceTree = "<group>"; };
 		7D38FA3225CBDC5300EE66E0 /* UITableviewCell+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableviewCell+Utils.swift"; sourceTree = "<group>"; };
 		7D38FA3325CBDC5300EE66E0 /* TableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
-		7D38FA3725CBDC5300EE66E0 /* TestView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
 		7D38FA3825CBDC5300EE66E0 /* AdvertisementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementCell.swift; sourceTree = "<group>"; };
 		7D38FA3925CBDC5300EE66E0 /* HomeInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		7D38FA3A25CBDC5300EE66E0 /* HomeConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeConfigurator.swift; sourceTree = "<group>"; };
@@ -83,6 +82,7 @@
 		7D38FA5825CBE31C00EE66E0 /* HomeAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPIService.swift; sourceTree = "<group>"; };
 		7D38FA7525CC1B8000EE66E0 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		7D38FA7A25CC1C9400EE66E0 /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
+		7D38FAA325CD419900EE66E0 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		B9A872286456ECC66CBE07BD /* Pods_AdvertisementApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdvertisementApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C07C31BE80684587423674B9 /* Pods-AdvertisementAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdvertisementAppTests.release.xcconfig"; path = "Target Support Files/Pods-AdvertisementAppTests/Pods-AdvertisementAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		C171746D32A9541BF4B54B7E /* Pods-AdvertisementApp-AdvertisementAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdvertisementApp-AdvertisementAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-AdvertisementApp-AdvertisementAppUITests/Pods-AdvertisementApp-AdvertisementAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -202,6 +202,7 @@
 				7D38FA3325CBDC5300EE66E0 /* TableViewModel.swift */,
 				7D38FA7525CC1B8000EE66E0 /* String+Utils.swift */,
 				7D38FA7A25CC1C9400EE66E0 /* Date+Utils.swift */,
+				7D38FAA325CD419900EE66E0 /* ImageLoader.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -234,7 +235,6 @@
 		7D38FA3625CBDC5300EE66E0 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				7D38FA3725CBDC5300EE66E0 /* TestView.xib */,
 				7D38FA3825CBDC5300EE66E0 /* AdvertisementCell.swift */,
 			);
 			path = Cells;
@@ -367,7 +367,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D38FA4525CBDC5300EE66E0 /* TestView.xib in Resources */,
 				7D38F9FC25CBDA3E00EE66E0 /* LaunchScreen.storyboard in Resources */,
 				7D38F9F925CBDA3E00EE66E0 /* Assets.xcassets in Resources */,
 			);
@@ -511,6 +510,7 @@
 				7D38FA4A25CBDC5300EE66E0 /* HomeViewController.swift in Sources */,
 				7D38FA4925CBDC5300EE66E0 /* HomeRooter.swift in Sources */,
 				7D38F9F225CBDA3E00EE66E0 /* SceneDelegate.swift in Sources */,
+				7D38FAA425CD419900EE66E0 /* ImageLoader.swift in Sources */,
 				7D38FA4B25CBDC5300EE66E0 /* HomeWorker.swift in Sources */,
 				7D38FA4225CBDC5300EE66E0 /* Leboncoin.swift in Sources */,
 				7D38FA4C25CBDC5300EE66E0 /* HomeModels.swift in Sources */,

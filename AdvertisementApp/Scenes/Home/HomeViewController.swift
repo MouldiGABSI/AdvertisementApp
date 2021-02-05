@@ -53,7 +53,7 @@ class HomeViewController: UIViewController, VIPController {
         view.addSubview(advertisementsTableView)
         
         advertisementsTableView.translatesAutoresizingMaskIntoConstraints = false
-        
+        advertisementsTableView.estimatedRowHeight = 10
         advertisementsTableView.topAnchor.constraint(equalTo:view.safeAreaLayoutGuide.topAnchor).isActive = true
         advertisementsTableView.leftAnchor.constraint(equalTo:view.safeAreaLayoutGuide.leftAnchor).isActive = true
         advertisementsTableView.rightAnchor.constraint(equalTo:view.safeAreaLayoutGuide.rightAnchor).isActive = true
