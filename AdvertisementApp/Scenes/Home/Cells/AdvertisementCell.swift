@@ -16,7 +16,7 @@ class AdvertisementCell: UITableViewCell {
         img.clipsToBounds = true
         return img
     }()
-    let titleLabe: UILabel = {
+    let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textColor = .black
@@ -26,7 +26,7 @@ class AdvertisementCell: UITableViewCell {
     let urgentLabel: UILabel = {
         
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textColor = .white
         label.backgroundColor = UIColor(red: 238.0/255.0, green: 104.0/255.0, blue: 40.0/255.0, alpha: 1.0)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -50,47 +50,42 @@ class AdvertisementCell: UITableViewCell {
     }()
    
     func setIconLayoutConstraints() {
-        NSLayoutConstraint.activate([
-            icon.heightAnchor.constraint(equalToConstant: 80),
-            icon.widthAnchor.constraint(equalToConstant: 80),
-            icon.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            icon.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20)
-         ])
+        
+        icon.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive           = true
+        icon.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive   = true
+        icon.heightAnchor.constraint(equalToConstant: 80).isActive                                 = true
+        icon.widthAnchor.constraint(equalToConstant: 80).isActive                                  = true
         setNeedsLayout()
         layoutIfNeeded()
     }
     
     func setTitleLayoutConstraints() {
-        NSLayoutConstraint.activate([
-            titleLabe.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30),
-            titleLabe.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 20),
-            titleLabe.leadingAnchor.constraint(equalTo: icon.trailingAnchor, constant: 20),
-            titleLabe.heightAnchor.constraint(equalToConstant: 32)
-         ])
+        titleLabel.numberOfLines = 0
+        titleLabel.textColor = .black
+        titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30).isActive            = true
+        titleLabel.leadingAnchor.constraint(equalTo: icon.trailingAnchor, constant: 20).isActive          = true
+        titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive  = true
         setNeedsLayout()
         layoutIfNeeded()
     }
     
     func setUrgentLayoutConstraints() {
         
-        NSLayoutConstraint.activate([
-            urgentLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-            urgentLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 10),
-            urgentLabel.widthAnchor.constraint(equalToConstant: 100),
-            urgentLabel.heightAnchor.constraint(equalToConstant: 15)
-         ])
+        urgentLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive            = true
+        urgentLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
+        urgentLabel.widthAnchor.constraint(equalToConstant: 100).isActive                                 = true
+        urgentLabel.heightAnchor.constraint(equalToConstant: 25).isActive                                 = true
         setNeedsLayout()
         layoutIfNeeded()
     }
     
     func setPriceLayoutConstraints() {
-        NSLayoutConstraint.activate([
-            priceLabel.heightAnchor.constraint(equalToConstant: 28),
-            priceLabel.widthAnchor.constraint(equalToConstant: 120),
-            priceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            priceLabel.topAnchor.constraint(greaterThanOrEqualTo: icon.bottomAnchor, constant: 10),
-            priceLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 20)
-         ])
+        
+        priceLabel.heightAnchor.constraint(equalToConstant: 28).isActive                                 = true
+        priceLabel.widthAnchor.constraint(equalToConstant: 120).isActive                                 = true
+        priceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive   = true
+        priceLabel.topAnchor.constraint(greaterThanOrEqualTo: icon.bottomAnchor, constant: 10).isActive  = true
+        priceLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive     = true
         setNeedsLayout()
         layoutIfNeeded()
     }
@@ -98,10 +93,11 @@ class AdvertisementCell: UITableViewCell {
     func setCategoryLayoutConstraints() {
         
         NSLayoutConstraint.activate([
-            categoryLabel.topAnchor.constraint(equalTo: titleLabe.bottomAnchor, constant: 20),
-            categoryLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 20),
+            categoryLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+            categoryLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
+            categoryLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             categoryLabel.leadingAnchor.constraint(equalTo: icon.trailingAnchor, constant: 20),
-            categoryLabel.heightAnchor.constraint(equalToConstant: 32)
+            categoryLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 32)
          ])
         setNeedsLayout()
         layoutIfNeeded()
@@ -114,14 +110,7 @@ class AdvertisementCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        //setUp()
-        contentView.addSubview(titleLabe)
-        contentView.backgroundColor = .red
-        titleLabe.textColor = .red
-        titleLabe.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30).isActive           = true
-        titleLabe.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 20).isActive = true
-        titleLabe.leadingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 20).isActive  = true
-        titleLabe.heightAnchor.constraint(equalToConstant: 32).isActive                                 = true
+        setUp()
     }
     
     override func awakeFromNib() {
@@ -132,7 +121,7 @@ class AdvertisementCell: UITableViewCell {
     func setUp() {
         contentView.addSubview(icon)
         setIconLayoutConstraints()
-        contentView.addSubview(titleLabe)
+        contentView.addSubview(titleLabel)
         setTitleLayoutConstraints()
         contentView.addSubview(urgentLabel)
         setUrgentLayoutConstraints()
@@ -146,13 +135,20 @@ class AdvertisementCell: UITableViewCell {
     
     
     func configure(model: AdvertisementRowViewModel) {
-        titleLabe.text       = model.title
+        titleLabel.text       = model.title
         categoryLabel.text   = model.category.description
         priceLabel.text      = "\(model.price)"
         urgentLabel.text     = "Urgent"
-        //urgentLabel.backgroundColor = UIColor(red: 238.0, green: 104.0, blue: 40.0, alpha: 1.0)
-        urgentLabel.textColor       = .red
+        urgentLabel.textAlignment = .center
+        urgentLabel.backgroundColor = UIColor(red: 238.0/255.0, green: 104.0/255.0, blue: 40.0/255.0, alpha: 1.0)
+        urgentLabel.textColor       = .white
         urgentLabel.isHidden = !model.isUrgent
+        
+        if let iconUrString = model.images.thumb, let iconURL = URL(string: iconUrString) {
+            ImageLoader.image(for: iconURL) { image in
+              self.icon.image = image
+            }
+        }
     }
 
 }
