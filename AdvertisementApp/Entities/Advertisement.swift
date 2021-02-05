@@ -66,3 +66,20 @@ struct ImageURL: Codable {
     var thumb: String?
 }
 
+extension Advertisement: Equatable {
+    static func == (lhs: Advertisement, rhs: Advertisement) -> Bool {
+        return lhs.isUrgent == rhs.isUrgent &&
+            lhs.category == rhs.category &&
+            lhs.creationDate == rhs.creationDate &&
+            lhs.price == rhs.price &&
+            lhs.title == rhs.title &&
+            lhs.description == rhs.description &&
+            lhs.images == rhs.images
+    }
+}
+
+extension ImageURL : Equatable {
+    static func == (lhs: ImageURL, rhs: ImageURL) -> Bool {
+        return lhs.small == rhs.small && lhs.thumb == rhs.thumb
+    }
+}

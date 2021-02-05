@@ -29,6 +29,7 @@ class HomeWorker {
                                            images: advertisement.images,
                                            isUrgent: advertisement.isUrgent)
         }
-        return HomeViewModel(sections: [AdvertisementSectionViewModel(dataModel: rows)])
+        let sections = rows.count > 0 ? [AdvertisementSectionViewModel(dataModel: rows)] : []
+        return HomeViewModel(sections: sections)
     }
 }
