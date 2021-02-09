@@ -23,11 +23,12 @@ class HomeWorker {
     func generateViewModel(advertisements: [Advertisement]) -> HomeViewModel? {
         
         let rows = advertisements.map { (advertisement) -> AdvertisementRowViewModel in
-            AdvertisementRowViewModel(title: advertisement.title,
-                                           category: advertisement.category,
-                                           price: advertisement.price,
-                                           images: advertisement.images,
-                                           isUrgent: advertisement.isUrgent)
+            AdvertisementRowViewModel(identifier: advertisement.identifier,
+                                      title: advertisement.title,
+                                      category: advertisement.category,
+                                      price: advertisement.price,
+                                      images: advertisement.images,
+                                      isUrgent: advertisement.isUrgent)
         }
         let sections = rows.count > 0 ? [AdvertisementSectionViewModel(dataModel: rows)] : []
         return HomeViewModel(sections: sections)

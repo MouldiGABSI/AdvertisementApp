@@ -18,6 +18,7 @@ class HomeInteractor: Interactor {
     /// The presenter var will store a reference to the HomeInteractorPresenter
     var presenter: HomePresenter
     var service: HomeAPIServiceProtocol?
+    var advertisementList: [Advertisement] = []
     /**
      We setup the HomeInteractorPresenter in the
      HomeInteractorInteractor, because only the interactor
@@ -38,6 +39,7 @@ class HomeInteractor: Interactor {
         service?.fetchAdvertisementsList(completion: { (result:Result<[Advertisement], APIError>) in
             switch result {
             case .success(let advertisements) :
+                self.advertisementList = advertisements
                 let worker = HomeWorker()
                 if let viewModel = worker.generateViewModel(advertisements: advertisements) {
                     self.presenter.present(viewModel: viewModel)
@@ -47,5 +49,9 @@ class HomeInteractor: Interactor {
             }
             
         })
+    }
+    
+    func getAdvertisement(byId identifier: Int) -> Advertisement? {
+        return advertisementList.filter({$0.identifier == identifier}).first
     }
 }

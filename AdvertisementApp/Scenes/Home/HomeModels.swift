@@ -29,6 +29,7 @@ struct AdvertisementRowViewModel: TableRowViewModel {
     var rowClass: AnyClass { return AdvertisementCell.self }
     
     var rowHeight: CGFloat { return UITableView.automaticDimension }
+    var identifier: Int
     var title: String
     var category: Category
     var price: Double

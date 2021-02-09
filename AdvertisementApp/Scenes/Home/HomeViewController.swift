@@ -117,6 +117,9 @@ extension HomeViewController : UITableViewDelegate {
     
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let selectedRow = viewModel?.row(rowAt: indexPath) as? AdvertisementRowViewModel {
+            if let selectedAdvertisement = interactor?.getAdvertisement(byId: selectedRow.identifier) {
+                router?.navigateToAdvertisementDetails(advertisement: selectedAdvertisement)
+            }
         }
     }
 }
