@@ -7,9 +7,13 @@
 
 import Foundation
 
-public enum Category : Int, Codable {
+protocol Filtrable {
+    var description : String { get }
+}
+
+public enum Category : Int, Codable, Filtrable {
     case cars = 1, fashion, diy, home, hobbies, realEstate, booksCDDVD, multimédia, services, pets, children
-    
+    static var allValues = [Category.cars, .fashion, .diy, .home, .hobbies, .realEstate, .booksCDDVD, .multimédia,.services, .pets, .children]
     var description : String {
         switch self {
         case .cars:
@@ -35,6 +39,7 @@ public enum Category : Int, Codable {
         case .children:
             return "Enfants"
         }
+        
     }
 }
 

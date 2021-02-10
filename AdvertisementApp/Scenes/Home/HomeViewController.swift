@@ -16,7 +16,11 @@ class HomeViewController: UIViewController, VIPController {
         didSet { DispatchQueue.main.async { self.advertisementsTableView.reloadData() } }
     }
     var router: HomeRouter?
+    var selectedCategory: Category?
+    
     let advertisementsTableView = UITableView()
+    
+    var filterController: FilterTableViewController<Category>?
     // MARK: - Initializers
     
     init(configurator: HomeConfigurator = HomeConfigurator.shared) {
@@ -45,6 +49,35 @@ class HomeViewController: UIViewController, VIPController {
         super.viewDidLoad()
         configureView()
         fetchAnnounecementOnLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(displayFilter))
+        filterController = FilterTableViewController<Category>(Category.allValues) { (category) -> String in
+            category.description
+        } onSelect: { (category) in
+            self.selectedCategory = (self.selectedCategory == category) ? nil : category
+            self.interactor?.getAdvertisement(byCategory: self.selectedCategory)
+        }
+        filterController?.preferredContentSize = CGSize(width: 300, height: 400)
+    }
+    
+    @objc @IBAction func displayFilter(_ sender: UIBarButtonItem) {
+        if let _filterController = filterController {
+            showPopup(_filterController, sourceView: sender)
+        }
+    }
+    
+    private func showPopup(_ controller: UIViewController, sourceView: UIBarButtonItem) {
+        if let presentationController = self.configurePresentation(forController: controller) {
+            presentationController.barButtonItem = sourceView
+            presentationController.permittedArrowDirections = .up
+            self.present(controller, animated: true)
+        }
+    }
+    
+    func configurePresentation(forController controller : UIViewController) -> UIPopoverPresentationController? {
+        controller.modalPresentationStyle = .popover
+        let presentationController = controller.presentationController as? UIPopoverPresentationController
+        presentationController?.delegate = self
+        return presentationController
     }
     
     func configureView() {
@@ -124,3 +157,10 @@ extension HomeViewController : UITableViewDelegate {
     }
 }
 
+extension HomeViewController : UIPopoverPresentationControllerDelegate {
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    
+}

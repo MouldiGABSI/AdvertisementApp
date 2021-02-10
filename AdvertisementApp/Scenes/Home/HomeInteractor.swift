@@ -39,9 +39,9 @@ class HomeInteractor: Interactor {
         service?.fetchAdvertisementsList(completion: { (result:Result<[Advertisement], APIError>) in
             switch result {
             case .success(let advertisements) :
-                self.advertisementList = advertisements
+                self.advertisementList = advertisements.sorted { ($0.createdOn ?? Date()) > ($1.createdOn ?? Date()) }.sorted{$0.isUrgent && !$1.isUrgent}
                 let worker = HomeWorker()
-                if let viewModel = worker.generateViewModel(advertisements: advertisements) {
+                if let viewModel = worker.generateViewModel(advertisements: self.advertisementList) {
                     self.presenter.present(viewModel: viewModel)
                 }
             case .failure(let error):
@@ -53,5 +53,17 @@ class HomeInteractor: Interactor {
     
     func getAdvertisement(byId identifier: Int) -> Advertisement? {
         return advertisementList.filter({$0.identifier == identifier}).first
+    }
+    
+    func getAdvertisement(byCategory category: Category?) {
+        
+        var filteredAdviertisement = self.advertisementList
+        if let _category = category {
+            filteredAdviertisement = advertisementList.filter({$0.category == _category})
+        }
+        let worker = HomeWorker()
+        if let viewModel = worker.generateViewModel(advertisements: filteredAdviertisement) {
+            self.presenter.present(viewModel: viewModel)
+        }
     }
 }
