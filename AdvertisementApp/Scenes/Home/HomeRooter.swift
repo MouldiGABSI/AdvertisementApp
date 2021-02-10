@@ -12,7 +12,7 @@ protocol HomeRouterProtocol {
 
     var viewController: HomeViewController? { get }
 
-    func navigateToSomewhere()
+    func navigateToAdvertisementDetails(advertisement: Advertisement)
 }
 
 final class HomeRouter {
@@ -36,7 +36,9 @@ extension HomeRouter: HomeRouterProtocol {
 
     // MARK: - Navigation
 
-    func navigateToSomewhere() {
-
+    func navigateToAdvertisementDetails(advertisement: Advertisement) {
+        let advertisementDetails = AdvertisementDetailsViewController()
+        advertisementDetails.currentAdvertisement = advertisement
+        viewController?.navigationController?.pushViewController(advertisementDetails, animated: true)
     }
 }
